@@ -1,0 +1,356 @@
+:root {
+  /* Nord Colors */
+  --nord0: #2e3440;
+  --nord1: #3b4252;
+  --nord2: #434c5e;
+  --nord3: #4c566a;
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord6: #eceff4;
+  --nord7: #8fbcbb;
+  --nord8: #88c0d0;
+  --nord9: #81a1c1;
+  --nord10: #5e81ac;
+  --nord11: #bf616a;
+  --nord12: #d08770;
+  --nord13: #ebcb8b;
+  --nord14: #a3be8c;
+  --nord15: #b48ead;
+
+  /* Light Mode */
+  --bg-primary: #eceff4;
+  /* made secondary noticeably darker than the page background for better contrast */
+  --bg-secondary: #d8dee9;
+  --text-primary: #2e3440;
+  --text-secondary: #3b4252;
+  --accent: #88c0d0;
+  --accent-alt: #81a1c1;
+}
+
+body.dark-mode {
+  /* Dark Mode */
+  --bg-primary: #2e3440;
+  --bg-secondary: #3b4252;
+  --text-primary: #eceff4;
+  --text-secondary: #d8dee9;
+  --accent: #88c0d0;
+  --accent-alt: #81a1c1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 2rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding-left: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+
+.header-left {
+  flex: 1;
+}
+
+header h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+#darkModeToggle {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: var(--accent-alt);
+  transform: scale(1.05);
+}
+
+#darkModeToggle:active {
+  transform: scale(0.95);
+}
+
+.header-right {
+  margin-right: 1rem;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  /* slightly stronger shadow so the "box" reads darker on light mode */
+  box-shadow: 0 6px 18px rgba(46, 52, 64, 0.08);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 20px;
+}
+
+section h2 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+section p {
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+/* Contact Form Styles */
+.contact-section {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-form label {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 5px;
+  background-color: rgba(46, 52, 64, 0.3);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(216, 222, 233, 0.5);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background-color: rgba(46, 52, 64, 0.5);
+  border-color: var(--accent-alt);
+  box-shadow: 0 0 8px rgba(136, 192, 208, 0.3);
+}
+
+.submit-btn {
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-alt) 100%);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(136, 192, 208, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(136, 192, 208, 0.2);
+}
+
+/* Footer Styles */
+footer {
+  height: 80px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  text-align: center;
+  padding: 1rem 1rem;
+  /* Adjusted padding */
+  position: fixed;
+  /* Make footer fixed */
+  bottom: 0;
+  /* Position it at the bottom */
+  left: 0;
+  /* Align to the left */
+  right: 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+footer p {
+  padding-top: 10px;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-section {
+    max-width: 100%;
+  }
+
+  .contact-form {
+    gap: 1.2rem;
+  }
+
+  .submit-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Animation Styles */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-down {
+  animation: slideDown 0.5s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
